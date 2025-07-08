@@ -13,6 +13,29 @@ class Entry extends Model
         'user_id', 'type', 'amount', 'description', 'date',
         'origin', 'category', 'currency'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($entry) {
+            $entry->updateUserBalance();
+        });
+    }
+
+
+    private function updateUserBalance()
+    {
+        $user = $this->user;
+        if ($user) {
+            if ($this->type === 'income') {
+                $user->current_balance += $this->amount;
+            } else {
+                $user->current_balance -= $this->amount;
+            }
+            $user->save();
+        }
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

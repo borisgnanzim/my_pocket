@@ -90,7 +90,7 @@ class AuthController extends Controller
 
     public function profile()
     {
-        $user = User::where('ref', Auth::user()->ref)->first();
+        $user = User::find(Auth::id());
         return $this->successResponse(new UserResource($user));
     }
 }
