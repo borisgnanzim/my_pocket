@@ -40,7 +40,17 @@ class EntryController extends Controller
      */
     public function store(StoreEntryRequest $request)
     {
-        $entry = Entry::create($request->validated());
+        $validatedData = $request->validated();
+        $entry = Entry::create([
+            'user_id' => auth()->id(),
+            'type' => $validatedData['type'],
+            'amount' => $validatedData['amount'],
+            'description' => $validatedData['description'],
+            'date' => $validatedData['date'],
+            'origin' => $validatedData['origin'] ?? null,
+            'category' => $validatedData['category'] ?? null,
+           // 'currency' => null,
+        ]);
         return $this->successResponse(EntryResource::make($entry), 'Entry Created Successfully', 201);
     }
 

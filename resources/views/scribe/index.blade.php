@@ -154,7 +154,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: July 8, 2025</li>
+        <li>Last updated: July 9, 2025</li>
     </ul>
 </div>
 
@@ -1092,9 +1092,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"type\": \"income\",
     \"amount\": 27,
     \"description\": \"Et animi quos velit et fugiat.\",
-    \"date\": \"2025-07-08T19:06:20\",
-    \"origin\": \"other\",
-    \"category\": \"health\"
+    \"date\": \"2025-07-09T09:56:08\",
+    \"origin\": \"gift\",
+    \"category\": \"transport\"
 }"
 </code></pre></div>
 
@@ -1114,9 +1114,9 @@ let body = {
     "type": "income",
     "amount": 27,
     "description": "Et animi quos velit et fugiat.",
-    "date": "2025-07-08T19:06:20",
-    "origin": "other",
-    "category": "health"
+    "date": "2025-07-09T09:56:08",
+    "origin": "gift",
+    "category": "transport"
 };
 
 fetch(url, {
@@ -1251,10 +1251,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-entries"
-               value="2025-07-08T19:06:20"
+               value="2025-07-09T09:56:08"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-07-08T19:06:20</code></p>
+<p>Must be a valid date. Example: <code>2025-07-09T09:56:08</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>origin</code></b>&nbsp;&nbsp;
@@ -1262,10 +1262,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="origin"                data-endpoint="POSTapi-entries"
-               value="other"
+               value="gift"
                data-component="body">
     <br>
-<p>This field is required when <code>type</code> is <code>income</code>. Example: <code>other</code></p>
+<p>This field is required when <code>type</code> is <code>income</code>. Example: <code>gift</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>salary</code></li> <li><code>investment</code></li> <li><code>gift</code></li> <li><code>other</code></li></ul>
         </div>
@@ -1275,10 +1275,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="category"                data-endpoint="POSTapi-entries"
-               value="health"
+               value="transport"
                data-component="body">
     <br>
-<p>This field is required when <code>type</code> is <code>expense</code>. Example: <code>health</code></p>
+<p>This field is required when <code>type</code> is <code>expense</code>. Example: <code>transport</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>food</code></li> <li><code>transport</code></li> <li><code>entertainment</code></li> <li><code>bills</code></li> <li><code>health</code></li> <li><code>clothing</code></li> <li><code>education</code></li> <li><code>other</code></li></ul>
         </div>
