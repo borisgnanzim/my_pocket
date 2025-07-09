@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ReportResource;
+use App\Models\Report;
 use App\Traits\JsonResponseTrait;
 use Illuminate\Http\Request;
 
@@ -43,12 +44,14 @@ class ReportController extends Controller
      */
     public function show(string $id)
     {
-        $report = ReportResource::find($id);
-        if (!$report) {
+        $report = Report::find($id);
+        if (!$report) 
+        {
             return $this->errorResponse('Report not found', 404);
         }
         // check if the report belongs to the authenticated user
-        if ($report->user_id !== auth()->id()) {
+        if ($report->user_id !== auth()->id()) 
+        {
             return $this->errorResponse('Unauthorized', 403);
         }
         return $this->successResponse(ReportResource::make($report), 'Report Retrieved Successfully', 200);
